@@ -5,7 +5,7 @@
   "schema_version": "1.0.0",
   "minimum_compatible_version": "1.0.0",
   "compatibility": "初始稳定版本；后续次版本只能增加兼容能力，必须保持向后兼容",
-  "generated_at": "2026-09-23T12:58:37.355Z",
+  "generated_at": "2026-09-23T13:11:10.377Z",
   "update_policy": "仅允许经过校验的人工更新；不得进行无人值守自动更新",
   "files": [
     {
@@ -15,8 +15,8 @@
     },
     {
       "path": "agents/openai.yaml",
-      "bytes": 287,
-      "sha256": "47F4BED05E615540DFAB5484993B28E6ABD356AB32D744E2ACBB8663A29B13FB"
+      "bytes": 283,
+      "sha256": "74249DDCDCC5280FF5E99D53140F4CC71F76F893F8EA0A55BC04071691C89E7B"
     },
     {
       "path": "assets/component-gallery-source.html",

@@ -42,7 +42,13 @@ jobs:
       - name: 检查公开边界
         shell: bash
         run: |
-          if rg -n 'C:\\Users|jueyi|ai-empowers|source_baseline_v13|ECB639E1E7916C86EAAB8FC644EEEF54998A7B9F9F26EE7770F331067212E4BD|gho_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,}|BEGIN (RSA |OPENSSH |EC )?PRIVATE KEY' skills README.md; then
+          windows_path='C:\\''Users'
+          local_user='jue''yi'
+          internal_project='ai''-empowers'
+          legacy_marker='source_baseline_''v13'
+          source_hash='ECB639E1E7916C86EAAB8FC644EEEF54''998A7B9F9F26EE7770F331067212E4BD'
+          forbidden="${windows_path}|${local_user}|${internal_project}|${legacy_marker}|${source_hash}|gho_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,}|BEGIN (RSA |OPENSSH |EC )?PRIVATE KEY"
+          if rg -n --hidden --glob '!.git/**' "$forbidden" .; then
             echo "发现本机路径或内部溯源信息"
             exit 1
           fi
