@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-CN" data-tob-version="1.0.0" data-tob-theme="consulting-blue">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="TOB 产品方案 HTML 组件应用规范与实时组件展廊">
+  <title>TOB 产品方案组件应用规范 HTML V1.0</title>
+  <link rel="stylesheet" href="tob-components.css">
+</head>
+<body class="tob-document" data-tob-theme="consulting-blue">
+  <aside class="tob-side-nav" aria-label="规范目录" data-component="side-navigation" data-origin="v13">
+    <div class="tob-nav-brand"><strong>TOB 产品方案组件规范</strong><span>HTML V1.0 · 默认主题可换肤</span></div>
+    <label class="tob-sr-only" for="gallery-search">搜索目录</label>
+    <input id="gallery-search" class="tob-nav-search" type="search" placeholder="搜索组件" data-tob-nav-search>
+    <nav>
+      <a class="tob-nav-link is-part" href="#cover" data-tob-nav-link>规范封面</a>
+      <a class="tob-nav-link" href="#summary" data-tob-nav-link>使用总则</a>
+      <a class="tob-nav-link is-part" href="#part-shell" data-tob-nav-link>一、文档框架</a>
+      <a class="tob-nav-link is-section" href="#shell" data-tob-nav-link>框架与内容表达</a>
+      <a class="tob-nav-link is-part" href="#part-card" data-tob-nav-link>二、卡片与决策</a>
+      <a class="tob-nav-link is-section" href="#cards" data-tob-nav-link>卡片、指标与比较</a>
+      <a class="tob-nav-link is-part" href="#part-flow" data-tob-nav-link>三、关系与流程</a>
+      <a class="tob-nav-link is-section" href="#flow" data-tob-nav-link>流程、时间线与泳道</a>
+      <a class="tob-nav-link is-part" href="#part-arch" data-tob-nav-link>四、架构与职责</a>
+      <a class="tob-nav-link is-section" href="#architecture" data-tob-nav-link>架构、组织与 RACI</a>
+      <a class="tob-nav-link is-part" href="#part-delivery" data-tob-nav-link>五、实施与风险</a>
+      <a class="tob-nav-link is-section" href="#delivery" data-tob-nav-link>路线图、风险与投资</a>
+      <a class="tob-nav-link is-part" href="#part-evidence" data-tob-nav-link>六、证据与验收</a>
+      <a class="tob-nav-link is-section" href="#evidence" data-tob-nav-link>追溯、验收与附录</a>
+    </nav>
+  </aside>
+
+  <div class="tob-page">
+    <header id="cover" class="tob-cover" data-component="cover" data-origin="v13">
+      <div class="tob-cover-kicker">TOB 产品方案设计体系</div>
+      <h1>TOB 产品方案组件应用规范</h1>
+      <div class="tob-cover-subtitle">面向规划方案、建设方案、专项方案和领导审议稿的 HTML 组件标准</div>
+      <div class="tob-cover-meta"><span>技能 V1.0.2</span><span>组件目录 V1.0.0</span><span>中文 ToB 方案</span><span>离线单文件交付</span></div>
+    </header>
+
+    <section id="summary" class="tob-executive-summary" data-component="executive-summary" data-origin="v13" data-semantic="confirmed">
+      <h2>使用总则</h2>
+      <div class="tob-boundary-statement" data-component="boundary-statement" data-origin="v13" data-semantic="requirement"><strong>适用范围：</strong>用于企业产品规划、数字化建设、AI 专项、实施路线和领导审议类长文 HTML；不用于后台产品 UI、数据看板、营销网站、PPT 或 Word。</div>
+      <div class="tob-grid tob-grid-4" data-component="numbered-card-grid" data-origin="v13">
+        <article class="tob-card"><span class="tob-card-number">01</span><h3 class="tob-card-title">内容先于装饰</h3><p class="tob-card-body">先识别信息关系，再选择组件；普通段落不强制卡片化。</p></article>
+        <article class="tob-card"><span class="tob-card-number">02</span><h3 class="tob-card-title">事实分级</h3><p class="tob-card-body">区分事实、要求、推断、建议、目标、风险和待确认事项。</p></article>
+        <article class="tob-card"><span class="tob-card-number">03</span><h3 class="tob-card-title">责任清晰</h3><p class="tob-card-body">金额、权限、状态和审批由规则或有权人员负责。</p></article>
+        <article class="tob-card"><span class="tob-card-number">04</span><h3 class="tob-card-title">证据即完成</h3><p class="tob-card-body">结构、浏览器、响应式、打印和离线资源均需验证。</p></article>
+      </div>
+      <div class="tob-tags" data-component="semantic-tags" data-origin="supplemental">
+        <span class="tob-tag" data-semantic="confirmed">已确认事实</span><span class="tob-tag" data-semantic="requirement">来源要求</span><span class="tob-tag" data-semantic="inference">分析推断</span><span class="tob-tag" data-semantic="recommendation">建议方案</span><span class="tob-tag" data-semantic="target">规划目标</span><span class="tob-tag" data-semantic="tbd">待确认</span><span class="tob-tag" data-semantic="risk">风险</span>
+      </div>
+    </section>
+
+    <main class="tob-content">
+      <section id="part-shell" class="tob-part" data-component="part-divider" data-origin="v13"><span class="tob-part-code">篇章 01</span><h1>文档框架与内容表达</h1><p class="tob-part-intro">承载封面、摘要、篇章、章节、导语、结论和管理边界。用于建立领导可快速扫描、正文可连续阅读、打印可稳定分页的基础结构。</p></section>
+
+      <article id="shell" class="tob-chapter" data-component="chapter" data-origin="v13">
+        <div class="tob-chapter-code">组件族 01</div><h2>文档框架与内容表达</h2>
+        <p class="tob-lead" data-component="chapter-lead" data-origin="v13">适用：长篇、分章、需领导审阅或打印发布的方案。避免：将框架组件用于短通知或应用界面。</p>
+        <h3>篇章与章节</h3>
+        <p>封面、侧边目录、摘要、篇章分隔、章节编号与章首导语构成完整文档框架。当前页面本身即为这些组件的实时示例。</p>
+        <h3>结论、边界、警告与证据缺口</h3>
+        <div class="tob-callout" data-component="management-callout" data-origin="v13" data-semantic="recommendation"><strong>管理提示：</strong>用于强调一项需要读者关注但不构成红线的管理建议。</div>
+        <div class="tob-conclusion" data-component="section-conclusion" data-origin="v13" data-semantic="inference"><strong>本节结论：</strong>用于收束事实、判断与下一步，不承载多项并列内容。</div>
+        <div class="tob-warning" data-component="warning-callout" data-origin="v13" data-semantic="risk"><strong>风险提示：</strong>用于明确可能影响交付、合规或决策的风险及其影响。</div>
+        <div class="tob-evidence-gap" data-component="evidence-gap" data-origin="supplemental" data-semantic="tbd"><strong>证据不足：</strong>示例预算尚无已批准口径，当前不得形成金额承诺。</div>
+        <p class="tob-section-sublead">禁用：同一小节连续堆叠多个高强调提示框；此时应改为卡片或表格。</p>
+      </article>
+
+      <section id="part-card" class="tob-part" data-component="part-divider" data-origin="v13"><span class="tob-part-code">篇章 02</span><h1>卡片、指标与决策表达</h1><p class="tob-part-intro">用于展示并列判断、角色、目标、指标、方案选项和推荐结论。</p></section>
+
+      <article id="cards" class="tob-chapter" data-component="chapter" data-origin="v13">
+        <div class="tob-chapter-code">组件族 02</div><h2>卡片、指标与决策</h2>
+        <p class="tob-lead">适用：2—8 个同层级概念共享字段结构。避免：内容过长、字段不一致或具有明显先后关系。</p>
+        <h3>编号信息卡</h3>
+        <div class="tob-grid tob-grid-4" data-component="numbered-card-grid" data-origin="v13">
+          <article class="tob-card"><span class="tob-card-number">01</span><span class="tob-card-label">示例</span><h4 class="tob-card-title">看清经营事实</h4><p class="tob-card-body">结论可追溯到口径、来源与业务明细。</p></article>
+          <article class="tob-card"><span class="tob-card-number">02</span><span class="tob-card-label">示例</span><h4 class="tob-card-title">识别关键问题</h4><p class="tob-card-body">把异常信号与影响因素组织起来。</p></article>
+          <article class="tob-card"><span class="tob-card-number">03</span><span class="tob-card-label">示例</span><h4 class="tob-card-title">落实责任行动</h4><p class="tob-card-body">明确责任、动作、期限与验收标准。</p></article>
+          <article class="tob-card"><span class="tob-card-number">04</span><span class="tob-card-label">示例</span><h4 class="tob-card-title">形成复盘闭环</h4><p class="tob-card-body">用执行证据和结果变化评价方案。</p></article>
+        </div>
+        <h3>KPI 基线—目标卡</h3>
+        <div class="tob-grid tob-grid-3" data-component="kpi-card-grid" data-origin="supplemental">
+          <article class="tob-kpi-card" data-semantic="target"><div class="tob-kpi-title">示例｜材料复核时长</div><div class="tob-kpi-value">待测量</div><div class="tob-kpi-meta">不得用规划值替代现状基线</div><div class="tob-kpi-row"><span>基线<strong>待确认</strong></span><span>目标<strong>评审后确定</strong></span><span>口径<strong>工作小时</strong></span></div></article>
+          <article class="tob-kpi-card" data-semantic="requirement"><div class="tob-kpi-title">示例｜证据可追溯率</div><div class="tob-kpi-value">100%</div><div class="tob-kpi-meta">规划验收门槛，不代表已经实现</div><div class="tob-kpi-row"><span>基线<strong>待确认</strong></span><span>目标<strong>100%</strong></span><span>口径<strong>有效引用/结论</strong></span></div></article>
+          <article class="tob-kpi-card" data-semantic="tbd"><div class="tob-kpi-title">示例｜实际使用率</div><div class="tob-kpi-value">待确认</div><div class="tob-kpi-meta">需先定义用户、周期与有效行为</div><div class="tob-kpi-row"><span>基线<strong>未测量</strong></span><span>目标<strong>待批准</strong></span><span>口径<strong>待定义</strong></span></div></article>
+        </div>
+        <h3>列表卡</h3>
+        <div class="tob-grid tob-grid-3" data-component="list-card-grid" data-origin="v13">
+          <article class="tob-card"><h4 class="tob-card-title">业务条件</h4><ul class="tob-card-list"><li>问题与对象已确认</li><li>责任角色可投入</li><li>验收口径可定义</li></ul></article>
+          <article class="tob-card"><h4 class="tob-card-title">数据条件</h4><ul class="tob-card-list"><li>来源与版本可追溯</li><li>质量缺口可见</li><li>敏感数据受控</li></ul></article>
+          <article class="tob-card"><h4 class="tob-card-title">技术条件</h4><ul class="tob-card-list"><li>接口或批次可验证</li><li>权限与审计明确</li><li>支持降级与恢复</li></ul></article>
+        </div>
+        <h3>方案比较与推荐</h3>
+        <div class="tob-grid tob-grid-3 tob-comparison" data-component="option-comparison" data-origin="supplemental">
+          <article class="tob-card"><h4 class="tob-card-title">方案 A｜保持现状</h4><ul class="tob-card-list"><li>投入较低</li><li>问题继续依赖人工</li><li>适用于短期维持</li></ul></article>
+          <article class="tob-card is-recommended"><span class="tob-card-label">建议方案</span><h4 class="tob-card-title">方案 B｜分阶段增强</h4><ul class="tob-card-list"><li>先明确规则和责任</li><li>小范围试点并验证</li><li>通过门槛后扩围</li></ul></article>
+          <article class="tob-card"><h4 class="tob-card-title">方案 C｜整体重建</h4><ul class="tob-card-list"><li>范围和投入较大</li><li>迁移风险较高</li><li>仅在现状不可持续时评估</li></ul></article>
+        </div>
+        <div class="tob-decision-banner" data-component="recommendation-banner" data-origin="supplemental" data-semantic="recommendation"><strong>推荐结论：</strong>示例选择方案 B，但正式决策仍需补齐投入、接口和试点数据。</div>
+      </article>
+
+      <section id="part-flow" class="tob-part" data-component="part-divider" data-origin="v13"><span class="tob-part-code">篇章 03</span><h1>关系、流程与时间</h1><p class="tob-part-intro">用于呈现先后顺序、阶段推进、角色并行协作和生命周期。</p></section>
+
+      <article id="flow" class="tob-chapter" data-component="chapter" data-origin="v13">
+        <div class="tob-chapter-code">组件族 03</div><h2>流程、时间线与泳道</h2>
+        <p class="tob-lead">步骤流表达顺序；时间线表达日期；泳道表达角色分工。不要用一种组件同时承担三种关系。</p>
+        <h3>阶段步骤</h3>
+        <div class="tob-steps" data-component="phase-flow" data-origin="v13">
+          <div class="tob-step"><strong>确认问题</strong><span>锁定对象、范围和责任。</span></div><div class="tob-step"><strong>准备基础</strong><span>核对数据、规则与权限。</span></div><div class="tob-step"><strong>试点验证</strong><span>以真实样本验证闭环。</span></div><div class="tob-step"><strong>评估扩围</strong><span>达到门槛后再复制。</span></div>
+        </div>
+        <h3>时间线</h3>
+        <div class="tob-timeline" data-component="timeline" data-origin="v13">
+          <div class="tob-timeline-item"><div class="tob-timeline-date">阶段一</div><div class="tob-timeline-card"><strong>现状与基线</strong><div>完成资料、现网、样本和争议盘点。</div></div></div>
+          <div class="tob-timeline-item"><div class="tob-timeline-date">阶段二</div><div class="tob-timeline-card"><strong>建设与试点</strong><div>按已确认范围建立可验收闭环。</div></div></div>
+          <div class="tob-timeline-item"><div class="tob-timeline-date">阶段三</div><div class="tob-timeline-card"><strong>评估与推广</strong><div>依据真实使用和业务结果作出决策。</div></div></div>
+        </div>
+        <h3>职责泳道</h3>
+        <div class="tob-swimlane" data-component="swimlane" data-origin="v13">
+          <div class="tob-lane"><strong>业务部门</strong><p>确认问题、事实、规则与验收。</p></div><div class="tob-lane"><strong>产品团队</strong><p>组织需求、方案、版本与运营。</p></div><div class="tob-lane"><strong>技术团队</strong><p>实现接口、控制、监测与恢复。</p></div><div class="tob-lane"><strong>管理机构</strong><p>审议方向、资源、风险和扩围。</p></div>
+        </div>
+      </article>
+
+      <section id="part-arch" class="tob-part" data-component="part-divider" data-origin="v13"><span class="tob-part-code">篇章 04</span><h1>架构、能力与职责</h1><p class="tob-part-intro">用于呈现平台层次、能力边界、组织关系和职责接口。</p></section>
+
+      <article id="architecture" class="tob-chapter" data-component="chapter" data-origin="v13">
+        <div class="tob-chapter-code">组件族 04</div><h2>架构、组织与 RACI</h2>
+        <p class="tob-lead">适用：层级、能力域和责任接口。避免：用架构图替代未经确认的真实系统关系。</p>
+        <h3>分层架构</h3>
+        <div class="tob-layers" data-component="layered-architecture" data-origin="supplemental">
+          <div class="tob-layer"><div class="tob-layer-name">应用与交互层</div><div class="tob-layer-items"><span>领导驾驶</span><span>业务工作台</span><span>移动协同</span><span>运营管理</span></div></div>
+          <div class="tob-layer"><div class="tob-layer-name">业务能力层</div><div class="tob-layer-items"><span>经营分析</span><span>风险核查</span><span>任务闭环</span><span>效果复盘</span></div></div>
+          <div class="tob-layer"><div class="tob-layer-name">AI 与规则层</div><div class="tob-layer-items"><span>规则计算</span><span>检索与抽取</span><span>分析与建议</span><span>评测与监测</span></div></div>
+          <div class="tob-layer"><div class="tob-layer-name">平台与数据层</div><div class="tob-layer-items"><span>主责系统</span><span>数据服务</span><span>权限审计</span><span>集成与运维</span></div></div>
+        </div>
+        <h3>组织结构</h3>
+        <div class="tob-org" data-component="organization-chart" data-origin="supplemental"><div class="tob-org-level"><div class="tob-org-node"><strong>领导机构</strong><div>方向、资源与重大风险</div></div></div><div class="tob-org-connector"></div><div class="tob-org-level"><div class="tob-org-node"><strong>业务主责</strong><div>规则与验收</div></div><div class="tob-org-node"><strong>产品牵头</strong><div>方案与运营</div></div><div class="tob-org-node"><strong>技术支撑</strong><div>实现与保障</div></div></div></div>
+        <h3>角色责任卡</h3>
+        <div class="tob-grid tob-grid-3" data-component="role-card-grid" data-origin="v13">
+          <article class="tob-card"><span class="tob-card-label">建议角色</span><h4 class="tob-card-title">业务负责人</h4><p class="tob-card-body">确认问题、业务规则、样本和验收结果。</p></article>
+          <article class="tob-card"><span class="tob-card-label">建议角色</span><h4 class="tob-card-title">产品负责人</h4><p class="tob-card-body">组织方案、范围、版本、运营和跨方协同。</p></article>
+          <article class="tob-card"><span class="tob-card-label">建议角色</span><h4 class="tob-card-title">技术负责人</h4><p class="tob-card-body">负责实现、安全、运行、监测和故障恢复。</p></article>
+        </div>
+        <h3>人机与系统责任边界</h3>
+        <div class="tob-boundary-grid" data-component="human-machine-boundary" data-origin="v13">
+          <section class="tob-boundary-card"><span class="tob-card-label">AI 可做</span><strong>检索、解释、诊断、起草</strong><ul><li>提供候选和依据</li><li>不直接形成正式结论</li></ul></section>
+          <section class="tob-boundary-card"><span class="tob-card-label">规则/程序</span><strong>计算、校验、权限、状态</strong><ul><li>执行批准公式</li><li>保留确定性日志</li></ul></section>
+          <section class="tob-boundary-card"><span class="tob-card-label">人工责任</span><strong>确认、决策、审批、问责</strong><ul><li>核实业务事实</li><li>承担正式责任</li></ul></section>
+          <section class="tob-boundary-card"><span class="tob-card-label">主责系统</span><strong>正式数据与状态</strong><ul><li>承载正式记录</li><li>不得被 AI 越权修改</li></ul></section>
+        </div>
+        <h3>RACI</h3>
+        <div class="tob-table-wrap" data-component="raci-matrix" data-origin="supplemental"><table class="tob-table tob-raci"><thead><tr><th>事项</th><th>业务部门</th><th>产品团队</th><th>技术团队</th><th>管理机构</th></tr></thead><tbody><tr><td>需求与业务规则</td><td class="a">A</td><td class="r">R</td><td class="c">C</td><td class="i">I</td></tr><tr><td>上线与风险接受</td><td class="r">R</td><td class="c">C</td><td class="c">C</td><td class="a">A</td></tr><tr><td>运行监测与恢复</td><td class="c">C</td><td class="a">A</td><td class="r">R</td><td class="i">I</td></tr></tbody></table></div>
+      </article>
+
+      <section id="part-delivery" class="tob-part" data-component="part-divider" data-origin="v13"><span class="tob-part-code">篇章 05</span><h1>实施、风险与投入</h1><p class="tob-part-intro">用于把路线、依赖、风险、投资与滚动决策形成可执行安排。</p></section>
+
+      <article id="delivery" class="tob-chapter" data-component="chapter" data-origin="v13">
+        <div class="tob-chapter-code">组件族 05</div><h2>路线图、风险与投资</h2>
+        <p class="tob-lead">示例数据仅演示布局。正式方案不得填造预算、收益、日期或已实现结果。</p>
+        <h3>简化路线图</h3>
+        <div class="tob-roadmap" data-component="roadmap-gantt" data-origin="supplemental"><div class="head">工作流</div><div class="head">阶段 1</div><div class="head">阶段 2</div><div class="head">阶段 3</div><div class="head">阶段 4</div><div class="head">阶段 5</div><div class="row-title">基础治理</div><div class="bar">盘点</div><div class="bar">标准</div><div></div><div></div><div></div><div class="row-title">场景建设</div><div></div><div class="bar">试点</div><div class="bar">贯通</div><div class="bar">推广</div><div></div><div class="row-title">运营评估</div><div></div><div></div><div class="bar">监测</div><div class="bar">优化</div><div class="bar">固化</div></div>
+        <h3>风险热力矩阵</h3>
+        <div class="tob-risk-matrix" data-component="risk-heatmap" data-origin="supplemental"><div class="axis">影响 / 可能性</div><div class="axis">低</div><div class="axis">中</div><div class="axis">高</div><div class="axis">高</div><div class="medium">R3 权限边界</div><div class="high">R1 数据不可用</div><div class="high">R2 责任未确认</div><div class="axis">中</div><div class="low">R6 培训延迟</div><div class="medium">R4 接口变化</div><div class="high">R5 效果不足</div><div class="axis">低</div><div class="low">观察项</div><div class="low">观察项</div><div class="medium">观察项</div></div>
+        <h3>风险、假设与依赖台账</h3>
+        <div class="tob-table-wrap" data-component="risk-register" data-origin="supplemental"><table class="tob-table"><thead><tr><th>类型</th><th>事项</th><th>影响</th><th>应对/验证</th><th>触发与恢复</th></tr></thead><tbody><tr><td>风险</td><td>示例：数据接口不可持续</td><td>自动分析中断</td><td>保留受控文件与人工核对</td><td>接口失败即降级；恢复后补对账</td></tr><tr><td>假设</td><td>示例：业务责任人可参与试点</td><td>影响规则确认与验收</td><td>立项前确认投入安排</td><td>未确认则不进入建设</td></tr><tr><td>依赖</td><td>示例：统一对象编码</td><td>影响跨系统关联</td><td>先完成映射与样本验证</td><td>未达标则缩小范围</td></tr></tbody></table></div>
+        <h3>投资与价值结构</h3>
+        <div class="tob-grid tob-grid-2" data-component="cost-benefit" data-origin="supplemental"><article class="tob-card"><h4 class="tob-card-title">投入构成</h4><ul class="tob-card-list"><li>产品与实施：待估算</li><li>数据与集成：待估算</li><li>安全与评测：待估算</li><li>运营与培训：待估算</li></ul></article><article class="tob-card"><h4 class="tob-card-title">价值验证</h4><ul class="tob-card-list"><li>效率：以基线和真实工时验证</li><li>质量：以差错和证据完整性验证</li><li>风险：以发现、处置和复发情况验证</li><li>ROI：投入与收益口径批准后计算</li></ul></article></div>
+      </article>
+
+      <section id="part-evidence" class="tob-part" data-component="part-divider" data-origin="v13"><span class="tob-part-code">篇章 06</span><h1>证据、验收与附录</h1><p class="tob-part-intro">用于形成来源可追溯、验收可执行、版本可回看、术语可理解的交付闭环。</p></section>
+
+      <article id="evidence" class="tob-chapter" data-component="chapter" data-origin="v13">
+        <div class="tob-chapter-code">组件族 06</div><h2>追溯、验收与附录</h2>
+        <p class="tob-lead">适用：正式交付与审议。避免：用表格数量代替真实证据。</p>
+        <h3>标准与宽表</h3>
+        <div class="tob-table-wrap" data-component="traceability-matrix" data-origin="supplemental"><table class="tob-table" data-component="standard-table" data-origin="v13"><thead><tr><th>需求编号</th><th>管理问题</th><th>能力</th><th>功能/流程</th><th>验收条件</th><th>证据</th></tr></thead><tbody><tr><td>REQ-001</td><td>示例：结论来源不清</td><td>证据追溯</td><td>引用与版本记录</td><td>每项关键结论可定位到有效来源</td><td>样本、日志、验收记录</td></tr><tr><td>REQ-002</td><td>示例：异常难闭环</td><td>任务协同</td><td>人工确认与正式派单</td><td>候选不得绕过人工直接生效</td><td>权限、状态和审计记录</td></tr></tbody></table></div>
+        <h3>图形与证据</h3>
+        <figure class="tob-figure" data-component="figure" data-origin="v13"><svg viewBox="0 0 900 260" role="img" aria-labelledby="figure-title"><title id="figure-title">示例：方案从事实到决策的证据链</title><defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#0b2e4f"/><stop offset="1" stop-color="#15938f"/></linearGradient></defs><rect x="20" y="70" width="160" height="100" rx="14" fill="#eef5f8" stroke="#9bb9c9"/><rect x="250" y="70" width="160" height="100" rx="14" fill="#eef5f8" stroke="#9bb9c9"/><rect x="480" y="70" width="160" height="100" rx="14" fill="#eef5f8" stroke="#9bb9c9"/><rect x="710" y="70" width="160" height="100" rx="14" fill="#eef5f8" stroke="#9bb9c9"/><path d="M180 120H245M410 120H475M640 120H705" stroke="url(#g)" stroke-width="6"/><g fill="#0b2e4f" font-family="Microsoft YaHei" font-size="22" text-anchor="middle"><text x="100" y="115">事实与来源</text><text x="330" y="115">分析与建议</text><text x="560" y="115">人工决策</text><text x="790" y="115">执行与证据</text></g><g fill="#607286" font-family="Microsoft YaHei" font-size="15" text-anchor="middle"><text x="100" y="145">版本、口径、责任</text><text x="330" y="145">候选、解释、草稿</text><text x="560" y="145">确认、审批、签署</text><text x="790" y="145">状态、验收、复盘</text></g></svg><figcaption class="tob-caption">图 E-1 示例证据链；仅用于展示组件，不代表具体项目已实现</figcaption></figure>
+        <p class="tob-source-note" data-component="source-note" data-origin="supplemental">来源说明：示例图形由本规范生成，不含真实客户数据；正式图形应标注来源、版本、日期和适用边界。</p>
+        <h3>版本记录</h3>
+        <div class="tob-table-wrap" data-component="version-record" data-origin="supplemental"><table class="tob-table"><thead><tr><th>版本</th><th>日期</th><th>变更类型</th><th>变更说明</th><th>兼容性</th></tr></thead><tbody><tr><td>1.0.2</td><td>2026-09-23</td><td>补丁</td><td>将 Skill 使用说明、参考资料、校验提示和展廊说明统一中文化</td><td>技术标识与组件接口不变</td></tr><tr><td>1.0.1</td><td>2026-09-23</td><td>补丁</td><td>修复组织结构组件的 A4 跨页拆分</td><td>组件接口不变</td></tr><tr><td>1.0.0</td><td>2026-09-23</td><td>主版本</td><td>首次建立通用组件体系</td><td>初始版本</td></tr></tbody></table></div>
+        <h3>术语表</h3>
+        <dl class="tob-glossary" data-component="glossary" data-origin="supplemental"><dt>已确认事实</dt><dd>有当前有效来源或验证证据支持的事实。</dd><dt>规划目标</dt><dd>期望达到的结果或门槛，不代表已经实现。</dd><dt>正式状态</dt><dd>由主责系统或规定流程记录并生效的业务状态。</dd></dl>
+        <h3>待确认空状态</h3>
+        <div class="tob-empty" data-component="empty-tbd-state" data-origin="supplemental" data-semantic="tbd"><strong>暂无足够证据形成结论</strong><span>请补充数据口径、样本范围、责任人和批准记录后再评价。</span></div>
+        <p class="tob-footnote" data-component="footnote" data-origin="supplemental">注 1：本规范中的组织、指标、阶段和投资内容均为中性示例，不构成任何真实项目事实或承诺。</p>
+      </article>
+    </main>
+  </div>
+
+  <button class="tob-back-top" type="button" aria-label="返回顶部" data-tob-back-top data-component="back-to-top" data-origin="v13">↑</button>
+  <script src="tob-components.js"></script>
+</body>
+</html>

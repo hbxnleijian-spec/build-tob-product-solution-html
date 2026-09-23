@@ -1,0 +1,103 @@
+{
+  "skill_name": "build-tob-product-solution-html",
+  "skill_version": "1.0.2",
+  "component_catalog_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "minimum_compatible_version": "1.0.0",
+  "compatibility": "初始稳定版本；后续次版本只能增加兼容能力，必须保持向后兼容",
+  "generated_at": "2026-09-23T12:58:37.355Z",
+  "update_policy": "仅允许经过校验的人工更新；不得进行无人值守自动更新",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 4535,
+      "sha256": "8DDA5D5E0A2BEB3A8A7C2B27470BE3D9D3BBA59FB6E5819F8E9CD1CFF28CA97C"
+    },
+    {
+      "path": "agents/openai.yaml",
+      "bytes": 287,
+      "sha256": "47F4BED05E615540DFAB5484993B28E6ABD356AB32D744E2ACBB8663A29B13FB"
+    },
+    {
+      "path": "assets/component-gallery-source.html",
+      "bytes": 28274,
+      "sha256": "97E1681038D5C1A31E8C19C08E31EA4629D2AA0C372A3ABD4D074602307CC116"
+    },
+    {
+      "path": "assets/component-gallery.html",
+      "bytes": 49614,
+      "sha256": "AF21314EAD2A08E64D65035F02259CA0D2E65CA4BAF72F6D2E51F4343A73FEB6"
+    },
+    {
+      "path": "assets/starter-template-standalone.html",
+      "bytes": 26186,
+      "sha256": "F217008276DA97ACE3EC72961D4D2C305D18B00B207CA85D866EC2775C103508"
+    },
+    {
+      "path": "assets/starter-template.html",
+      "bytes": 4846,
+      "sha256": "215A84EFACD59D68DF8068B9A63470E17E1DDF5FE4F1AA8AF31802A96861A45B"
+    },
+    {
+      "path": "assets/tob-components.css",
+      "bytes": 19938,
+      "sha256": "DA8CEFF6B56398FFE7FCEDD8147F3737731EA18E26B7EFC41F71E61FBD044B46"
+    },
+    {
+      "path": "assets/tob-components.js",
+      "bytes": 1379,
+      "sha256": "37E9B15F533A35A5AC9892397DA9898B4F6CE3399D53A5BAE51F5F93C207BCB9"
+    },
+    {
+      "path": "references/component-catalog.json",
+      "bytes": 21535,
+      "sha256": "369C51DFED3BD2B24D3CDB5EBC7975A866ECB4BAC8C0041F6AFE9C6D5541731B"
+    },
+    {
+      "path": "references/component-selection.md",
+      "bytes": 3468,
+      "sha256": "26E2EE2AAE17D348B61D04EBD81CC754D491594FBF15014F1D67EAACF37D59BC"
+    },
+    {
+      "path": "references/content-governance.md",
+      "bytes": 2607,
+      "sha256": "E6CAEE1CCF4AB9AA250A7EFB6C99FD0001F2945A1B48EC40EA6DFC5E487EC813"
+    },
+    {
+      "path": "references/update-policy.md",
+      "bytes": 1663,
+      "sha256": "BE0608333C43A49BB4937D4F120486355BB7A626E9A148DC530A9CFBBB241D60"
+    },
+    {
+      "path": "scripts/build-standalone.mjs",
+      "bytes": 1639,
+      "sha256": "6C1CB1EB19591F4713CB71F22B38102A5F55064D302AC5C9F1E8B701E4D0A74B"
+    },
+    {
+      "path": "scripts/create-release-manifest.mjs",
+      "bytes": 2220,
+      "sha256": "DC753788040F9DC3258287875A8D046B03317687BDDF1CF66810BEC492EE189D"
+    },
+    {
+      "path": "scripts/validate-html.mjs",
+      "bytes": 4100,
+      "sha256": "48878EEFA46D86F5DAA1EF0C7E21593D8FDAD06730ADF75FECE8E058B77AD759"
+    },
+    {
+      "path": "scripts/verify-gallery-catalog.mjs",
+      "bytes": 1011,
+      "sha256": "34D86342533FA99B2C9BA092DA44E37414DB04EAC3C7E4DB27FA392E3F41B8AC"
+    },
+    {
+      "path": "scripts/verify-legacy-map.mjs",
+      "bytes": 1218,
+      "sha256": "47A62B32AEE5BD70C2AA22FB1A5B8394E2BC867A3E18D50CA47BFE0AD7A8BA3C"
+    },
+    {
+      "path": "scripts/verify-theme-contrast.mjs",
+      "bytes": 1358,
+      "sha256": "F023253301C6EAE28803BD2140E2250692749B7ECD298F18E5E288DB98A66198"
+    }
+  ],
+  "external_deliverables": []
+}

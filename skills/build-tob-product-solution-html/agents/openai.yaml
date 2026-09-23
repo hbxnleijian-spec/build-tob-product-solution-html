@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOB 产品方案 HTML 构建"
+  short_description: "创建、改造并校验企业级 ToB 产品方案 HTML"
+  default_prompt: "使用 $build-tob-product-solution-html 创建一份面向决策、可离线交付并通过校验的 ToB 产品方案 HTML。"

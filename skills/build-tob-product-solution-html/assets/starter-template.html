@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN" data-tob-version="1.0.0" data-tob-theme="consulting-blue">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>【方案名称】</title>
+  <link rel="stylesheet" href="tob-components.css">
+</head>
+<body class="tob-document" data-tob-theme="consulting-blue">
+  <aside class="tob-side-nav" aria-label="方案目录" data-component="side-navigation" data-origin="v13">
+    <div class="tob-nav-brand"><strong>【方案简称】</strong><span>【版本与日期】</span></div>
+    <label class="tob-sr-only" for="toc-search">搜索目录</label>
+    <input id="toc-search" class="tob-nav-search" type="search" placeholder="搜索目录" data-tob-nav-search>
+    <nav>
+      <a class="tob-nav-link is-part" href="#cover" data-tob-nav-link>封面</a>
+      <a class="tob-nav-link" href="#summary" data-tob-nav-link>摘要与决策边界</a>
+      <a class="tob-nav-link is-part" href="#part-1" data-tob-nav-link>第一篇 方案正文</a>
+      <a class="tob-nav-link is-section" href="#chapter-1" data-tob-nav-link>第一章 建设背景</a>
+    </nav>
+  </aside>
+
+  <div class="tob-page">
+    <header id="cover" class="tob-cover" data-component="cover" data-origin="v13">
+      <div class="tob-cover-kicker">TOB 产品方案</div>
+      <h1>【TOB 产品方案名称】</h1>
+      <div class="tob-cover-subtitle">【副标题：说明建设对象与规划边界】</div>
+      <div class="tob-cover-meta"><span>【编制单位】</span><span>【版本】</span><span>【日期】</span></div>
+    </header>
+
+    <section id="summary" class="tob-executive-summary" data-component="executive-summary" data-origin="v13" data-semantic="recommendation">
+      <h2>摘要与决策边界</h2>
+      <div class="tob-boundary-statement" data-component="boundary-statement" data-origin="v13" data-semantic="tbd">
+        <strong>待确认：</strong>用一段话说明本方案解决什么问题、不做什么、由谁承担正式责任，以及需要决策什么。
+      </div>
+      <div class="tob-tags" data-component="semantic-tags" data-origin="supplemental">
+        <span class="tob-tag" data-semantic="confirmed">已确认事实</span>
+        <span class="tob-tag" data-semantic="recommendation">建议方案</span>
+        <span class="tob-tag" data-semantic="tbd">待确认</span>
+      </div>
+    </section>
+
+    <main class="tob-content">
+      <section id="part-1" class="tob-part" data-component="part-divider" data-origin="v13">
+        <span class="tob-part-code">篇章 01</span>
+        <h1>第一篇 方案正文</h1>
+        <p class="tob-part-intro">说明本篇回答的管理问题、主要判断和内容边界。</p>
+      </section>
+
+      <article id="chapter-1" class="tob-chapter" data-component="chapter" data-origin="v13">
+        <div class="tob-chapter-code">章节 01</div>
+        <h2>第一章 建设背景</h2>
+        <p class="tob-lead">用一段可独立阅读的章首导语说明现状、问题与本章结论。</p>
+
+        <h3>1.1 核心判断</h3>
+        <div class="tob-grid tob-grid-4" data-component="numbered-card-grid" data-origin="v13">
+          <article class="tob-card"><span class="tob-card-number">01</span><h4 class="tob-card-title">【判断一】</h4><p class="tob-card-body">【简要说明】</p></article>
+          <article class="tob-card"><span class="tob-card-number">02</span><h4 class="tob-card-title">【判断二】</h4><p class="tob-card-body">【简要说明】</p></article>
+          <article class="tob-card"><span class="tob-card-number">03</span><h4 class="tob-card-title">【判断三】</h4><p class="tob-card-body">【简要说明】</p></article>
+          <article class="tob-card"><span class="tob-card-number">04</span><h4 class="tob-card-title">【判断四】</h4><p class="tob-card-body">【简要说明】</p></article>
+        </div>
+
+        <h3>1.2 关键事项</h3>
+        <div class="tob-table-wrap" data-component="standard-table" data-origin="v13">
+          <table class="tob-table">
+            <thead><tr><th>事项</th><th>当前状态</th><th>建议动作</th><th>责任</th><th>证据</th></tr></thead>
+            <tbody><tr><td>【事项】</td><td>待确认</td><td>【建议动作】</td><td>【责任角色】</td><td>【证据位置】</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="tob-conclusion" data-component="section-conclusion" data-origin="v13" data-semantic="recommendation"><strong>本节结论：</strong>【用一句话收束判断、影响和下一步。】</div>
+      </article>
+    </main>
+  </div>
+
+  <button class="tob-back-top" type="button" aria-label="返回顶部" data-tob-back-top data-component="back-to-top" data-origin="v13">↑</button>
+  <script src="tob-components.js"></script>
+</body>
+</html>

@@ -1,0 +1,546 @@
+{
+  "schema_version": "1.0.0",
+  "catalog_version": "1.0.0",
+  "skill_version": "1.0.2",
+  "minimum_compatible_version": "1.0.0",
+  "default_theme": "consulting-blue",
+  "source_baseline": "已验证的 V1.3 项目基线（原始文件未随公开仓库发布）",
+  "semantic_values": [
+    "confirmed",
+    "requirement",
+    "inference",
+    "recommendation",
+    "target",
+    "tbd",
+    "risk"
+  ],
+  "components": [
+    {
+      "id": "cover",
+      "category": "document-shell",
+      "name": "方案封面",
+      "origin": "v13",
+      "selector": ".tob-cover",
+      "use_when": "长篇方案需要独立标题、副标题、版本与日期",
+      "avoid_when": "短通知或嵌入式页面",
+      "required_fields": ["title", "subtitle", "version", "date"],
+      "variants": ["consulting-blue", "neutral-slate"],
+      "print_policy": "封面独立一页"
+    },
+    {
+      "id": "side-navigation",
+      "category": "document-shell",
+      "name": "固定目录与搜索",
+      "origin": "v13",
+      "selector": ".tob-side-nav",
+      "use_when": "文档章节较多且需要快速定位",
+      "avoid_when": "内容不足三个一级章节",
+      "required_fields": ["brand", "anchor_links"],
+      "variants": ["part", "section"],
+      "print_policy": "打印时隐藏"
+    },
+    {
+      "id": "executive-summary",
+      "category": "document-shell",
+      "name": "领导摘要",
+      "origin": "v13",
+      "selector": ".tob-executive-summary",
+      "use_when": "需要先呈现核心判断、边界和决策请求",
+      "avoid_when": "摘要与正文完全重复",
+      "required_fields": ["decision", "boundary", "status"],
+      "variants": ["boundary-led", "decision-led"],
+      "print_policy": "封面后连续输出"
+    },
+    {
+      "id": "part-divider",
+      "category": "document-shell",
+      "name": "篇章分隔",
+      "origin": "v13",
+      "selector": ".tob-part",
+      "use_when": "多个章节组成一个独立主题篇章",
+      "avoid_when": "每章都创建篇章页",
+      "required_fields": ["part_code", "title", "intro"],
+      "variants": ["standard"],
+      "print_policy": "前后分页"
+    },
+    {
+      "id": "chapter",
+      "category": "document-shell",
+      "name": "章节容器",
+      "origin": "v13",
+      "selector": ".tob-chapter",
+      "use_when": "承载完整章节及章首导语",
+      "avoid_when": "仅为视觉分组而制造章节",
+      "required_fields": ["chapter_code", "title", "lead"],
+      "variants": ["standard", "appendix"],
+      "print_policy": "章首分页"
+    },
+    {
+      "id": "back-to-top",
+      "category": "document-shell",
+      "name": "返回顶部",
+      "origin": "v13",
+      "selector": ".tob-back-top",
+      "use_when": "长文档浏览",
+      "avoid_when": "短页面",
+      "required_fields": ["aria_label"],
+      "variants": ["floating"],
+      "print_policy": "打印时隐藏"
+    },
+    {
+      "id": "chapter-lead",
+      "category": "content-expression",
+      "name": "章首导语",
+      "origin": "v13",
+      "selector": ".tob-lead",
+      "use_when": "一段话说明现状、问题和本章结论",
+      "avoid_when": "罗列多个并列事项",
+      "required_fields": ["lead_text"],
+      "variants": ["standard"],
+      "print_policy": "标题后不拆分"
+    },
+    {
+      "id": "management-callout",
+      "category": "content-expression",
+      "name": "管理提示",
+      "origin": "v13",
+      "selector": ".tob-callout",
+      "use_when": "突出一项重要管理建议",
+      "avoid_when": "同节存在多个同等级结论",
+      "required_fields": ["label", "message"],
+      "variants": ["info"],
+      "print_policy": "整体不拆分"
+    },
+    {
+      "id": "boundary-statement",
+      "category": "content-expression",
+      "name": "边界声明",
+      "origin": "v13",
+      "selector": ".tob-boundary-statement",
+      "use_when": "需要明确做什么、不做什么和正式责任",
+      "avoid_when": "边界尚未获得依据且未标为待确认",
+      "required_fields": ["scope", "non_scope", "responsibility"],
+      "variants": ["executive", "section"],
+      "print_policy": "整体不拆分"
+    },
+    {
+      "id": "section-conclusion",
+      "category": "content-expression",
+      "name": "本节结论",
+      "origin": "v13",
+      "selector": ".tob-conclusion",
+      "use_when": "收束事实、判断和下一步",
+      "avoid_when": "结论超过一个主题",
+      "required_fields": ["conclusion"],
+      "variants": ["standard"],
+      "print_policy": "整体不拆分"
+    },
+    {
+      "id": "warning-callout",
+      "category": "content-expression",
+      "name": "风险警告",
+      "origin": "v13",
+      "selector": ".tob-warning",
+      "use_when": "明确可能影响决策、交付或合规的风险",
+      "avoid_when": "普通说明",
+      "required_fields": ["risk", "impact"],
+      "variants": ["warning", "critical"],
+      "print_policy": "整体不拆分"
+    },
+    {
+      "id": "evidence-gap",
+      "category": "content-expression",
+      "name": "证据缺口",
+      "origin": "supplemental",
+      "selector": ".tob-evidence-gap",
+      "use_when": "资料不足以形成确定结论",
+      "avoid_when": "用行业常识替代企业证据",
+      "required_fields": ["missing_evidence", "next_confirmation"],
+      "variants": ["tbd", "conflict"],
+      "print_policy": "整体不拆分"
+    },
+    {
+      "id": "semantic-tags",
+      "category": "content-expression",
+      "name": "事实语义标签",
+      "origin": "supplemental",
+      "selector": ".tob-tag",
+      "use_when": "区分事实、要求、建议、目标、待确认和风险",
+      "avoid_when": "只靠颜色表达含义",
+      "required_fields": ["semantic", "label"],
+      "variants": ["confirmed", "requirement", "inference", "recommendation", "target", "tbd", "risk"],
+      "print_policy": "保留文字和背景"
+    },
+    {
+      "id": "numbered-card-grid",
+      "category": "cards-layout",
+      "name": "编号卡片组",
+      "origin": "v13",
+      "selector": ".tob-grid .tob-card",
+      "use_when": "二至八个同层级观点共享结构",
+      "avoid_when": "内容关系是时间、流程或重复字段",
+      "required_fields": ["number", "title", "body"],
+      "variants": ["2-col", "3-col", "4-col", "compact"],
+      "print_policy": "单卡不拆分"
+    },
+    {
+      "id": "list-card-grid",
+      "category": "cards-layout",
+      "name": "列表卡片组",
+      "origin": "v13",
+      "selector": ".tob-card-list",
+      "use_when": "每个并列对象包含三至五个字段或要点",
+      "avoid_when": "字段需要严格横向比较",
+      "required_fields": ["title", "items"],
+      "variants": ["plain", "accent", "risk"],
+      "print_policy": "单卡不拆分"
+    },
+    {
+      "id": "role-card-grid",
+      "category": "cards-layout",
+      "name": "角色责任卡",
+      "origin": "v13",
+      "selector": ".tob-card",
+      "use_when": "少量角色需要展示定位和职责",
+      "avoid_when": "任务与角色很多且需横向对比；改用 RACI",
+      "required_fields": ["role", "position", "responsibilities"],
+      "variants": ["3-col", "4-col"],
+      "print_policy": "单卡不拆分"
+    },
+    {
+      "id": "kpi-card-grid",
+      "category": "cards-layout",
+      "name": "KPI 基线目标卡",
+      "origin": "supplemental",
+      "selector": ".tob-kpi-card",
+      "use_when": "指标定义、单位、基线和目标具有可靠依据",
+      "avoid_when": "未定义口径却展示精确数字",
+      "required_fields": ["metric", "unit", "baseline", "target", "definition", "status"],
+      "variants": ["confirmed", "target", "tbd"],
+      "print_policy": "单卡不拆分"
+    },
+    {
+      "id": "option-comparison",
+      "category": "decision-governance",
+      "name": "方案选项比较",
+      "origin": "supplemental",
+      "selector": ".tob-comparison",
+      "use_when": "多个选项可按共同标准比较",
+      "avoid_when": "缺少共同评价标准",
+      "required_fields": ["option", "benefits", "costs", "risks", "fit"],
+      "variants": ["2-option", "3-option", "recommended"],
+      "print_policy": "每个选项不拆分"
+    },
+    {
+      "id": "recommendation-banner",
+      "category": "decision-governance",
+      "name": "推荐结论",
+      "origin": "supplemental",
+      "selector": ".tob-decision-banner",
+      "use_when": "比较后需要明确建议与前置条件",
+      "avoid_when": "没有比较依据或决策权限",
+      "required_fields": ["recommendation", "basis", "conditions"],
+      "variants": ["recommended", "conditional"],
+      "print_policy": "整体不拆分"
+    },
+    {
+      "id": "phase-flow",
+      "category": "relationship-flow",
+      "name": "阶段步骤流",
+      "origin": "v13",
+      "selector": ".tob-steps",
+      "use_when": "展示三至八个有序阶段",
+      "avoid_when": "需要精确日期或并行责任",
+      "required_fields": ["step_number", "title", "description"],
+      "variants": ["4-step", "8-step"],
+      "print_policy": "单步骤不拆分"
+    },
+    {
+      "id": "timeline",
+      "category": "relationship-flow",
+      "name": "时间线",
+      "origin": "v13",
+      "selector": ".tob-timeline",
+      "use_when": "日期、事件和结果是主要关系",
+      "avoid_when": "阶段没有时间属性",
+      "required_fields": ["date", "event", "result"],
+      "variants": ["dated", "stage"],
+      "print_policy": "单事件不拆分"
+    },
+    {
+      "id": "swimlane",
+      "category": "relationship-flow",
+      "name": "职责泳道",
+      "origin": "v13",
+      "selector": ".tob-swimlane",
+      "use_when": "展示多角色并行分工或交接",
+      "avoid_when": "只需展示顺序",
+      "required_fields": ["actor", "responsibility", "handoff"],
+      "variants": ["3-lane", "4-lane"],
+      "print_policy": "单泳道不拆分"
+    },
+    {
+      "id": "human-machine-boundary",
+      "category": "decision-governance",
+      "name": "人机与系统责任边界",
+      "origin": "v13",
+      "selector": ".tob-boundary-grid",
+      "use_when": "AI、规则、人工和主责系统共同参与",
+      "avoid_when": "省略正式责任或把建议写成自动生效",
+      "required_fields": ["ai", "rules", "human", "source_system"],
+      "variants": ["four-party"],
+      "print_policy": "四栏并排，单卡不拆分"
+    },
+    {
+      "id": "layered-architecture",
+      "category": "architecture-responsibility",
+      "name": "分层架构",
+      "origin": "supplemental",
+      "selector": ".tob-layers",
+      "use_when": "层次和能力域关系需要说明",
+      "avoid_when": "真实系统关系未经确认",
+      "required_fields": ["layers", "capabilities", "boundaries"],
+      "variants": ["4-layer", "custom"],
+      "print_policy": "单层不拆分"
+    },
+    {
+      "id": "organization-chart",
+      "category": "architecture-responsibility",
+      "name": "组织架构",
+      "origin": "supplemental",
+      "selector": ".tob-org",
+      "use_when": "展示治理层级和汇报关系",
+      "avoid_when": "角色或人员尚未获正式确认且未标建议",
+      "required_fields": ["governance_levels", "roles", "relationship"],
+      "variants": ["hierarchy", "coordination"],
+      "print_policy": "节点不拆分"
+    },
+    {
+      "id": "raci-matrix",
+      "category": "architecture-responsibility",
+      "name": "RACI 矩阵",
+      "origin": "supplemental",
+      "selector": ".tob-raci",
+      "use_when": "多事项与多角色需要明确责任",
+      "avoid_when": "责任含义未定义或一项存在多个 A",
+      "required_fields": ["activity", "roles", "raci_definition"],
+      "variants": ["standard"],
+      "print_policy": "重复表头"
+    },
+    {
+      "id": "risk-heatmap",
+      "category": "implementation-risk",
+      "name": "风险热力矩阵",
+      "origin": "supplemental",
+      "selector": ".tob-risk-matrix",
+      "use_when": "风险已完成概率和影响分级",
+      "avoid_when": "分级口径未定义",
+      "required_fields": ["risk_id", "probability", "impact"],
+      "variants": ["3x3"],
+      "print_policy": "整体不拆分"
+    },
+    {
+      "id": "risk-register",
+      "category": "implementation-risk",
+      "name": "风险假设依赖台账",
+      "origin": "supplemental",
+      "selector": ".tob-table",
+      "use_when": "需要管理风险、假设、依赖和触发恢复",
+      "avoid_when": "只写原则性风险口号",
+      "required_fields": ["type", "item", "impact", "response", "trigger", "recovery"],
+      "variants": ["risk", "assumption", "dependency", "decision"],
+      "print_policy": "重复表头"
+    },
+    {
+      "id": "roadmap-gantt",
+      "category": "implementation-risk",
+      "name": "路线图与简化甘特",
+      "origin": "supplemental",
+      "selector": ".tob-roadmap",
+      "use_when": "展示工作流跨阶段分布",
+      "avoid_when": "需要项目计划软件级精确依赖",
+      "required_fields": ["workstream", "phase", "milestone", "gate"],
+      "variants": ["5-phase", "custom"],
+      "print_policy": "允许横向缩放，不拆单元格"
+    },
+    {
+      "id": "cost-benefit",
+      "category": "implementation-risk",
+      "name": "投资与价值结构",
+      "origin": "supplemental",
+      "selector": ".tob-grid-2",
+      "use_when": "投入和价值口径已确认或明确标记待估",
+      "avoid_when": "编造金额、收益或 ROI",
+      "required_fields": ["cost_category", "value_category", "basis", "status"],
+      "variants": ["qualitative", "quantitative"],
+      "print_policy": "单卡不拆分"
+    },
+    {
+      "id": "standard-table",
+      "category": "data-evidence",
+      "name": "标准表格与宽表",
+      "origin": "v13",
+      "selector": ".tob-table-wrap",
+      "use_when": "多个对象共享重复字段",
+      "avoid_when": "单一结论或叙事过程",
+      "required_fields": ["headers", "rows"],
+      "variants": ["standard", "wide", "matrix"],
+      "print_policy": "重复表头，屏幕内横向滚动"
+    },
+    {
+      "id": "figure",
+      "category": "data-evidence",
+      "name": "图形与图注",
+      "origin": "v13",
+      "selector": ".tob-figure",
+      "use_when": "图形能显著降低关系理解成本",
+      "avoid_when": "装饰图无信息价值",
+      "required_fields": ["image_or_svg", "alt_or_title", "caption", "source"],
+      "variants": ["image", "svg", "gallery"],
+      "print_policy": "图与图注不拆分"
+    },
+    {
+      "id": "traceability-matrix",
+      "category": "data-evidence",
+      "name": "需求验收追溯矩阵",
+      "origin": "supplemental",
+      "selector": ".tob-table",
+      "use_when": "需求需映射能力、功能、验收和证据",
+      "avoid_when": "早期愿景尚无验收范围",
+      "required_fields": ["requirement_id", "problem", "capability", "delivery", "acceptance", "evidence"],
+      "variants": ["requirement", "scenario", "control"],
+      "print_policy": "重复表头"
+    },
+    {
+      "id": "source-note",
+      "category": "data-evidence",
+      "name": "来源说明",
+      "origin": "supplemental",
+      "selector": ".tob-source-note",
+      "use_when": "结论、图形或数据需说明来源和边界",
+      "avoid_when": "用模糊的“公开资料”替代定位信息",
+      "required_fields": ["source", "version_or_date", "boundary"],
+      "variants": ["figure", "table", "section"],
+      "print_policy": "随对象输出"
+    },
+    {
+      "id": "version-record",
+      "category": "data-evidence",
+      "name": "版本记录",
+      "origin": "supplemental",
+      "selector": ".tob-table",
+      "use_when": "正式方案需要审计变更与兼容性",
+      "avoid_when": "把过程记录塞入领导正文；可放附件",
+      "required_fields": ["version", "date", "change_type", "summary", "compatibility"],
+      "variants": ["compact", "detailed"],
+      "print_policy": "重复表头"
+    },
+    {
+      "id": "glossary",
+      "category": "data-evidence",
+      "name": "术语表",
+      "origin": "supplemental",
+      "selector": ".tob-glossary",
+      "use_when": "存在专业术语、缩写或容易误解的概念",
+      "avoid_when": "正文已能清楚定义且术语很少",
+      "required_fields": ["term", "definition"],
+      "variants": ["standard"],
+      "print_policy": "条目不拆分"
+    },
+    {
+      "id": "footnote",
+      "category": "data-evidence",
+      "name": "脚注",
+      "origin": "supplemental",
+      "selector": ".tob-footnote",
+      "use_when": "补充限定条件、定义或来源说明",
+      "avoid_when": "把关键结论隐藏在脚注中",
+      "required_fields": ["marker", "note"],
+      "variants": ["numbered", "section-note"],
+      "print_policy": "跟随相关正文输出"
+    },
+    {
+      "id": "empty-tbd-state",
+      "category": "data-evidence",
+      "name": "待确认空状态",
+      "origin": "supplemental",
+      "selector": ".tob-empty",
+      "use_when": "没有足够证据或数据但必须显式占位",
+      "avoid_when": "用空白掩盖失败",
+      "required_fields": ["reason", "next_action"],
+      "variants": ["tbd", "no-data", "no-permission"],
+      "print_policy": "整体不拆分"
+    }
+  ],
+  "legacy_class_groups": [
+    {
+      "target_component": "document-shell",
+      "classes": ["v12-consulting", "document", "content"]
+    },
+    {
+      "target_component": "side-navigation",
+      "classes": ["side-nav", "brand", "search", "toc", "toc-part", "toc-chapter", "toc-section", "back-top"]
+    },
+    {
+      "target_component": "cover-and-summary",
+      "classes": ["hero", "subtitle", "v13-cover-subtitle", "v13-leadership-summary"]
+    },
+    {
+      "target_component": "part-and-chapter",
+      "classes": ["part-divider", "part-intro", "chapter", "chapter-no", "chapter-lead", "solution-chapter", "specialty-chapter", "specialty-standardized", "solution-section", "positioning-heading"]
+    },
+    {
+      "target_component": "content-expression",
+      "classes": ["chapter-insight", "review-boundary", "section-panel", "callout", "warn", "v13-boundary-statement", "v13-callout-title", "v13-human-intro", "v13-indexed-heading", "v13-management-callout", "v13-narrative", "v13-plain-description", "v13-plain-section", "v13-position-intro", "v13-section-conclusion", "v13-section-index", "v13-section-sublead"]
+    },
+    {
+      "target_component": "internal-utility",
+      "classes": ["underline", "v13-added-text", "v13-normalized-weight"]
+    },
+    {
+      "target_component": "card-core",
+      "classes": ["consulting-card", "generated-card-title", "v13-info-card", "v13-list-card", "v13-card-body", "v13-card-eyebrow", "v13-card-list", "v13-card-number", "v13-card-title", "v13-unnumbered-card-title"]
+    },
+    {
+      "target_component": "card-grid-layout",
+      "classes": ["boundary-card-grid", "comparison-grid", "decision-card-grid", "metric-card-grid", "principle-card-grid", "priority-card-grid", "recommendation-grid", "resource-card-grid", "result-card-grid", "role-card-grid", "stage-card-grid", "specialty-grid-v12", "v13-eight-card-grid", "v13-five-card-grid", "v13-four-card-grid", "v13-goal-stack", "v13-position-grid", "v13-process-grid", "v13-six-card-grid", "v13-stack-grid", "v13-system-role-grid", "v13-triad-grid"]
+    },
+    {
+      "target_component": "specialty-card",
+      "classes": ["specialty-card-v12", "specialty-problem"]
+    },
+    {
+      "target_component": "role-card",
+      "classes": ["v13-role-card", "v13-role-grid", "v13-role-grid-four", "v13-role-label", "v13-role-list", "v13-role-principle", "v13-role-summary", "v13-role-title"]
+    },
+    {
+      "target_component": "timeline",
+      "classes": ["timeline-v12", "timeline-item-v12", "timeline-date-v12", "timeline-card-v12"]
+    },
+    {
+      "target_component": "flow-and-lifecycle",
+      "classes": ["flow", "flow-step", "flow-step-body", "flow-step-number", "flow-step-title", "phase-flow-v12", "indicator-lifecycle", "arrow", "step", "v13-eight-node-flow"]
+    },
+    {
+      "target_component": "solution-reference-flow",
+      "classes": ["sl-boundary", "sl-boundary-body", "sl-boundary-title", "sl-component-title", "sl-fallback", "sl-fallback-body", "sl-fallback-card", "sl-fallback-title", "sl-flow", "sl-lane", "sl-lane-body", "sl-lane-title", "sl-reference", "sl-reference-intro", "sl-step", "sl-step-body", "sl-step-number", "sl-step-title", "sl-swimlane"]
+    },
+    {
+      "target_component": "boundary-and-redline",
+      "classes": ["v13-boundary-1", "v13-boundary-2", "v13-boundary-3", "v13-boundary-4", "v13-boundary-card", "v13-boundary-detail-card", "v13-boundary-detail-grid", "v13-boundary-footer", "v13-boundary-grid", "v13-boundary-label", "v13-boundary-list", "v13-boundary-title", "v13-redline-card", "v13-redline-grid", "non-goal-grid", "mechanism-list", "threshold-grid"]
+    },
+    {
+      "target_component": "table-and-matrix",
+      "classes": ["table-wrap", "management-matrix"]
+    },
+    {
+      "target_component": "figure-and-gallery",
+      "classes": ["visual", "caption", "portal-figure", "evidence-gallery-2col"]
+    },
+    {
+      "target_component": "attribute-chip-group",
+      "classes": ["grid", "grid-2", "attribute-block", "attribute-title", "chips"]
+    }
+  ],
+  "deprecated_alias_policy": "废弃别名至少保留一个次版本；主版本变更必须提供迁移映射。"
+}

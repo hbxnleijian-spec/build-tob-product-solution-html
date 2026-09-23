@@ -1,0 +1,48 @@
+name: 校验 Skill 发布包
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 配置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 校验 Skill 元数据
+        run: |
+          node -e "const fs=require('fs'); const s=fs.readFileSync('skills/build-tob-product-solution-html/SKILL.md','utf8'); if(!s.startsWith('---\nname: build-tob-product-solution-html\ndescription: ')) process.exit(1);"
+
+      - name: 校验组件目录与展廊
+        working-directory: skills/build-tob-product-solution-html
+        run: |
+          node scripts/verify-gallery-catalog.mjs assets/component-gallery.html references/component-catalog.json
+          node -e "const c=require('./references/component-catalog.json'); const n=new Set(c.legacy_class_groups.flatMap(x=>x.classes)).size; if(c.components.length!==38||n!==148){console.error({components:c.components.length,legacyClasses:n});process.exit(1)}"
+
+      - name: 校验 HTML 与主题
+        working-directory: skills/build-tob-product-solution-html
+        run: |
+          node scripts/validate-html.mjs assets/component-gallery.html
+          node scripts/validate-html.mjs assets/starter-template-standalone.html
+          node scripts/verify-theme-contrast.mjs
+
+      - name: 检查公开边界
+        shell: bash
+        run: |
+          if rg -n 'C:\\Users|jueyi|ai-empowers|source_baseline_v13|ECB639E1E7916C86EAAB8FC644EEEF54998A7B9F9F26EE7770F331067212E4BD|gho_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,}|BEGIN (RSA |OPENSSH |EC )?PRIVATE KEY' skills README.md; then
+            echo "发现本机路径或内部溯源信息"
+            exit 1
+          fi
